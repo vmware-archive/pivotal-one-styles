@@ -1,0 +1,10 @@
+pairs:
+  bb: Brian Butz; bbutz
+  gd: George Dean; gdean
+  mtm: Molly Trombley-McCann; molly
+  ko: Kate Odell; kodell
+  tl: Tim Labeeuw; tlabeeuw
+
+email:
+  prefix: pair
+  domain: pivotallabs.com
