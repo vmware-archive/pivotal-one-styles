@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript" src="style_guide_assets/style_guide.js"></script>
+    <link type="text/css" rel="stylesheet" href="assets/css/application.css" media="all">
+    <link type="text/css" rel="stylesheet" href="assets/css/print.css" media="print">
+    <link type="text/css" rel="stylesheet" href="assets/css/style_guide.css" media="all">
+  </head>
+  <body>
+    <div class="page_wrapper">
+      <div class="headers">
+
+        <nav class="navbar navbar-default navbar-inverse navbar-static-top" role="navigation">
+          <div class="nav-list-wrapper">
+            <div class="container">
+              <ul class="nav-list">
+                <li>
+                  <a href="http://docs.cloudfoundry.com/" target="_blank">
+                    Docs
+                  </a>
+                </li>
+                <li>
+                  <a href="http://support.cloudfoundry.com/" target="_blank">
+                    Support
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+          <div class="container">
+            <!-- Brand and toggle get grouped for better small screen display -->
+            <div class="navbar-header">
+              <button class="navbar-toggle" data-target="#pivotal-nav" data-toggle="collapse" type="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand">
+                <span class="image-logo"></span>
+              </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+          </div>
+        </nav>
+
+      </div>
+
+      <div class="page-body">
+        <div class="container container-main">
+          <h1>a brand new style guide, it's super effective</h1>
+          <nav>
+            <ul>
+            <% @blocks.each do |b| %>
+              <li><a href="#<%= b[:name] %>"><%= b[:title] %></a></li>
+            <% end %>
+            </ul>
+          </nav>
+          <section class="content">
