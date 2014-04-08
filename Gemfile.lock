@@ -8,6 +8,8 @@ GEM
       sass (~> 3.1)
     diff-lcs (1.2.5)
     fssm (0.2.10)
+    haml (4.0.5)
+      tilt
     hologram (1.0.1)
       pygments.rb (~> 0.4.2)
       redcarpet (~> 2.2.2)
@@ -26,6 +28,7 @@ GEM
       diff-lcs (>= 1.1.3, < 2.0)
     rspec-mocks (2.14.6)
     sass (3.2.18)
+    tilt (2.0.1)
     yajl-ruby (1.1.0)
 
 PLATFORMS
@@ -33,5 +36,6 @@ PLATFORMS
 
 DEPENDENCIES
   compass
+  haml
   hologram
   sass (= 3.2.18)
