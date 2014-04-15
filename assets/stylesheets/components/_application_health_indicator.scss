@@ -164,7 +164,7 @@ The application health indicator can be `.running`, `.warning_75`, `.warning_50`
 
 ## Sizes
 
-The application health indicator can be large or small using the `.application-health-sm` and `.application-health-lg` classes.
+The application health indicator can be large or small using the `.health` and `.health health-indicator-large` classes.
 
 <div class="row">
   <div class="col-md-4">
@@ -241,6 +241,8 @@ parameter is the application affected by the actions of the application health i
 =application_state_indicator(application, {:large_indicator: true})
 ```
 */
+
+
 
 .health {
   width: $health-indicator-size;

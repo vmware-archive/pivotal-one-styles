@@ -1,0 +1,51 @@
+/*doc
+---
+title: Sidebar
+name: sidebar
+parent: navigation
+---
+
+Shows a list of links alongside a main div. Currently has top margin to align with headings on Policies pages.
+
+```haml_example
+%ul.sidebar
+  %li
+    %h3.h1.heading Heading 1
+    %ul.sub
+      %li
+        %a{href:'#'} item 1.1
+      %li
+        %a{href:'#'} item 1.2
+      %li
+        %a{href:'#'} item 1.3
+  %li
+    %h3.h1.heading Heading 2
+    %ul.sub
+      %li
+        %a{href:'#'} item 2.1
+      %li
+        %a{href:'#'} item 2.2
+      %li
+        %a{href:'#'} item 2.3
+```
+*/
+
+.sidebar {
+  margin-top: 70px;
+  @media all and (max-width: $screen-sm) {
+    margin-top: 24px;
+  }
+
+  .heading {
+    margin-top: 25px;
+  }
+
+  &, .sub {
+    padding-left: 0;
+    list-style: none;
+
+    li {
+      padding-bottom: inherit;
+    }
+  }
+}

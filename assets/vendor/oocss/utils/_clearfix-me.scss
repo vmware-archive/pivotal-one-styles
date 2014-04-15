@@ -10,13 +10,13 @@ $clearfix-method: overflow !default;
 
 // create stub classes for each of the four clearfix methods
 
-%clearfix-overflow {
+@mixin clearfix-overflow {
   overflow: hidden;
   *overflow: visible;
   zoom: 1;
 }
 
-%clearfix-facebook {
+@mixin clearfix-facebook {
   display: table-cell;
   vertical-align: top;
   width: 10000px !important;
@@ -28,7 +28,7 @@ $clearfix-method: overflow !default;
   //<=IE7
 }
 
-%clearfix-micro {
+@mixin clearfix-micro {
   zoom: 1;
   //@include has-layout;
   &:before,
@@ -41,7 +41,7 @@ $clearfix-method: overflow !default;
   }
 }
 
-%clearfix-stubborn {
+@mixin clearfix-stubborn {
   display: table-cell;
   &:after {
     clear: both;
@@ -58,13 +58,16 @@ $clearfix-method: overflow !default;
 // extends so the output will be smaller
 
 @mixin clearfix-me($method: $clearfix-method) {
-  @if $method != overflow and $method != facebook and $method != micro and $method != stubborn {
-    @warn "The clearfix method #{$method} is unkown";
-    @extend %clearfix-micro;
+  @if $method == facebook {
+    @include clearfix-facebook;
+  } @else if $method == micro {
+    @include clearfix-micro;
+  } @else if $method == stubborn {
+    @include clearfix-stubborn;
+  } @else if $method == overflow {
+    @include clearfix-overflow;
   } @else {
-  //@debug "clearfix method recognized:";
-  //@debug $method;
-    @extend %clearfix-#{$method};
+    @warn "The clearfix method #{$method} is unkown";
+    @include clearfix-micro;
   }
-
 }

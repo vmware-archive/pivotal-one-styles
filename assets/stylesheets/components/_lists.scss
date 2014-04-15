@@ -12,7 +12,6 @@ category: Base CSS
 title: Inline List
 name: list-inline
 parent: lists
-category: Base CSS
 ---
 
 An inline list is one of the three methods for laying out content (including grids and the media block).
@@ -40,7 +39,6 @@ An inline list is one of the three methods for laying out content (including gri
 title: Ordered List
 name: list-ordered
 parent: lists
-category: Base CSS
 ---
 
 
@@ -60,7 +58,6 @@ category: Base CSS
 title: Unordered List
 name: list-unordered
 parent: lists
-category: Base CSS
 ---
 
 
@@ -80,7 +77,6 @@ category: Base CSS
 title: Unstyled List
 name: list-unstyled
 parent: lists
-category: Base CSS
 ---
 
 Places all list items on a single line with `display: inline-block;` and some light padding. The `.list-unstyled` class can be applied to either a `<ul>` or and `<ol>`.
@@ -101,7 +97,6 @@ Places all list items on a single line with `display: inline-block;` and some li
 title: Inline Divider List
 name: list-inline-divider
 parent: lists
-category: Base CSS
 ---
 
 Places all list items on a single line with `display: inline-block;` and some light padding. The `.list-inline-divider` also adds a simple gray border.
@@ -133,10 +128,11 @@ Places all list items on a single line with `display: inline-block;` and some li
 title: Breadcrumb List
 name: list-breadcrumb
 parent: lists
-category: Base CSS
 ---
 
 The `.list-breadcrumb` can be used to provide additional page navigation.
+
+Breadcrumbs use their own monospace font-family.
 
 ```haml_example
 %ul.list-breadcrumb
@@ -147,23 +143,38 @@ The `.list-breadcrumb` can be used to provide additional page navigation.
     %a{href: "http://google.com"}
       Child
   %li.current
-    %a
+    %span
       Current Page
 ```
 */
 
 .list-breadcrumb {
   @extend .list-inline;
+  margin-bottom: 0;
+
+  font-family: "Consolas", "Menlo", "Monaco", "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, serif;
+
   > li {
     font-size: 0; // TODO: remove all font-size hacks from this file when we start minifying our HTML
-    a{
-      font-size: $font-size-base;
+    a, &.current span {
+      font-size: 14px;
+      display: inline-block;
+      max-width: 200px;
+      @include ellipsis;
+      vertical-align: middle;
     }
+
+    &.current span {
+      color: $navbar-default-link-color;
+    }
+
     padding-left: 0;
     padding-right: 0;
     &:before {
       font-size: $font-size-base;
+      color: $navbar-default-link-color;
       content: ">";
+      vertical-align: middle;
       padding-right: 5px;
       padding-left: 5px;
     }
@@ -178,7 +189,6 @@ The `.list-breadcrumb` can be used to provide additional page navigation.
 title: List Group
 name: list-group
 parent: lists
-category: Base CSS
 ---
 
 Use this list when you need simple gray borders between items
@@ -210,7 +220,6 @@ Use this list when you need simple gray borders between items
 title: Vertical Divider List
 name: list-vertical-divider
 parent: lists
-category: Base CSS
 ---
 
 Use this list when you need larger gray borders between
@@ -283,7 +292,6 @@ right min-height.
 title: Steps List
 name: list-steps
 parent: lists
-category: Base CSS
 ---
 
 Use this list when you need to show the steps in a flow.
@@ -337,7 +345,6 @@ Use this list when you need to show the steps in a flow.
 title: List Spacing
 name: list-whitespace
 parent: lists
-category: Base CSS
 ---
 
 Most lists come with built in default spacing that should work for you. However, if you find yourself needing to modify the spacing, you should do that with list spacing classes rather than whitespace classes. A single class can be applied to the list and all direct children will be modified.
@@ -506,6 +513,38 @@ The classes are constructed by specifying `<type><location><size>`.
 
 */
 
+/*doc
+---
+title: Checked List
+name: list-checked
+parent: lists
+---
+
+Replaces the default bullet image with the font awesome checkmark.
+
+```haml_example
+%ul.list-checked
+  %li
+    feep
+  %li
+    fop
+  %li
+    meep
+```
+*/
+
+.list-checked {
+  list-style: none;
+  padding-left: 20px;
+
+  li:before {
+    font-family: 'FontAwesome';
+    // Font Awesome unicode for fa-check
+    content: '\f00c';
+    margin: 0 5px 0 -15px;
+    color: $teal-3;
+  }
+}
 
 
 

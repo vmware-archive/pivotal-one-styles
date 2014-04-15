@@ -14,21 +14,20 @@ html, body {
 // b-flat layout
 
 .page-wrapper {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  flex-direction: column;
+  position: relative;
   min-height: 100%;
+
   .page-body {
-    flex: 1;
+    padding-bottom: 51px;
   }
+
   .page-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 }
-
-
-
-
 
 // login pages layout
 

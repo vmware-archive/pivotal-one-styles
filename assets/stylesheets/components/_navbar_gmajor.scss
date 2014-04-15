@@ -1,0 +1,85 @@
+.navbar-fixed-left{
+  width: $navbar-width;
+  float: left;
+  color: #fff;
+  border: none;
+
+  .navbar-header {
+    float: none; //bootstrap override
+    .navbar-brand {
+      font-size: 17px;
+      font-weight: 200;
+      float:none;
+      display: block;
+      padding: 10px;
+
+      .image-logo {
+        width: $logo-width;
+        height: $logo-height;
+        display: block;
+        background-position: top left;
+        background-repeat: no-repeat;
+        background-image: image-url("logo-pws.png");
+        .on_premise & {
+          background-image: image-url("logo-pcf.png");
+        }
+      }
+    }
+  }
+
+  .nav {
+    float: none; //bootstrap override //TODO: move up
+    > li {
+      float: none; //bootstrap override //TODO: move up
+      background-color: $glow;
+      margin-top: 1px;
+
+      &.active {
+        > a {
+          border-left: 7px solid $teal-7;
+        }
+      }
+      &:hover, &:focus {
+        background-color: transparent;
+      }
+
+    }
+  }
+  .navbar-secondary {
+    padding: 11px;
+  }
+  .navbar-collapse {
+    padding-bottom: 12px; //bootstrap override
+
+    .navbar-topper {
+      @include background-clip-fix;
+      border-top: 5px solid rgba(0, 0, 0, .6);
+      @extend .bkg-overlay-1;
+    }
+  }
+  .navlinks-global {
+    a {
+      font-weight: 600;
+      color: rgba(255,255,255,.5);
+      display: block;
+    }
+
+    li:hover, li:focus {
+      cursor: pointer;
+      background-color: rgba(0, 0, 0, .45);
+      a {
+        color: $blue-3;
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-sm) {
+  .navbar-fixed-left {
+    float: none;
+    width: auto;
+  }
+  .navbar-toggle {
+    margin: 20px;
+  }
+}

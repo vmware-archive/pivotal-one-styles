@@ -1,0 +1,117 @@
+/*doc
+---
+title: Cards
+name: cards
+category: Aggregates
+---
+*/
+
+/*doc
+---
+title: Space Card
+name: card-space
+parent: cards
+category: Aggregates
+---
+
+```haml_example
+.sg-gray-4.pam
+  .row
+    .col-md-12
+      .panel.panel-space.hover.crashed
+        .panel-body
+          %h4 Space
+          %h2 development
+          .row
+            .col-sm-13
+              .panel.panel-basic
+                .panel-body
+                  .row
+                    .col-xs-14.txt-c
+                      %h4 Apps
+                      %p.type-em-4 12
+                    .col-xs-10
+                      %ul.traffic-lights.list-unstyled
+                        %li.green-light
+                          %i.fa.fa-circle
+                          5
+                        %li.gray-light
+                          %i.fa.fa-circle
+                          1
+                        %li.red-light
+                          %i.fa.fa-circle
+                          8
+            .col-sm-11.txt-c
+              .panel.panel-basic
+                .panel-body
+                  %h4 Services
+                  %p.type-em-4 8
+          %p.mbn 10% of Org Quota
+    .col-md-12
+      .panel.panel-space.hover.stopped
+        .panel-body
+          %h4 Space
+          %h2 development
+          .row
+            .col-sm-13
+              .panel.panel-basic
+                .panel-body
+                  .row
+                    .col-xs-14.txt-c
+                      %h4 Apps
+                      %p.type-em-4 12
+                    .col-xs-10
+                      %ul.traffic-lights.list-unstyled
+                        %li.green-light.off
+                          %i.fa.fa-circle
+
+                        %li.gray-light
+                          %i.fa.fa-circle
+                          2
+                        %li.red-light.off
+                          %i.fa.fa-circle
+
+            .col-sm-11.txt-c
+              .panel.panel-basic
+                .panel-body
+                  %h4 Services
+                  %p.type-em-4 8
+          %p.mbn 10% of Org Quota
+    .col-md-12
+      .panel.panel-space.hover
+        .panel-body
+          %h4 Space
+          %h2 development
+          .row
+            .col-sm-13
+              .panel.panel-basic
+                .panel-body
+                  .row
+                    .col-xs-14.txt-c
+                      %h4 Apps
+                      %p.type-em-4 6
+                    .col-xs-10
+                      %ul.traffic-lights.list-unstyled
+                        %li.green-light
+                          %i.fa.fa-circle
+                          6
+                        %li.gray-light.off
+                          %i.fa.fa-circle
+
+                        %li.red-light.off
+                          %i.fa.fa-circle
+
+            .col-sm-11.txt-c
+              .panel.panel-basic
+                .panel-body
+                  %h4 Services
+                  %p.type-em-4 8
+          %p.mbn 6% of Org Quota
+    .col-md-12
+      .panel.panel-space.empty.hover
+        .panel-body.aligner
+          %a.aligner-item{:href => "http://google.com"}
+            %i.fa.fa-plus-circle
+            Add A Space
+```
+*/

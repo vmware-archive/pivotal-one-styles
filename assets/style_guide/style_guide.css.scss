@@ -1,11 +1,33 @@
 // Styles specific to the styleguide, otherwise, not used
-//@import "github";
-@import "bootstrap/mixins";
+@import 'github';
+@import "bootstrap3/mixins";
 
 .page-body {
   nav {
     width: 200px;
     float: left;
+    li {
+      ul {
+        display: none;
+      }
+
+      > a {
+        border-left: 3px solid white;
+        color: #B3B3B3;
+        padding: 3px 3px;
+      }
+    }
+    li.active {
+      ul{
+        display: block;
+      }
+
+      > a {
+        border-left: 2px solid #49A8D5;
+        color: #49A8D5;
+        padding: 3px 3px;
+      }
+    }
   }
 
   .content {
@@ -14,10 +36,9 @@
   }
   nav + h1 {
     width: 80%;
-    float: right; 
+    float: right;
   }
 }
-
 
 nav {
   ul {
@@ -37,6 +58,9 @@ nav {
 }
 
 .chip {
+
+  margin-top: 10px;
+
   .chip-color {
     min-height: 100px;
   }
@@ -245,4 +269,10 @@ table td, table th {
 //make background image visible in styleguide chip
 .bkg-highlight-2 {
   background-position: 0 50%;
+}
+
+// toggle code visibility
+
+.code-hide .codeBlock {
+  display: none;
 }

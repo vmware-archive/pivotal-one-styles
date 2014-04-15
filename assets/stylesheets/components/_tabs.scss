@@ -13,7 +13,6 @@ You can activate a tab or pill navigation without writing any JavaScript by simp
 title: Highlight Tabs
 name: tab_highlight
 parent: tabs
-category: Base CSS
 ---
 
 ```haml_example
@@ -114,7 +113,6 @@ category: Base CSS
     }
 
     .tab-title {
-      text-transform: uppercase;
       font-size: $nav-tabs-title-font-size;
     }
   }
@@ -129,3 +127,104 @@ category: Base CSS
     min-height: 600px;
   }
 }
+
+/*doc
+---
+title: Tabs
+name: tabs
+category: Base CSS
+---
+
+*/
+
+/*doc
+---
+title: Simple Tabs
+name: tab_simple
+parent: tabs
+---
+
+```haml_example
+.tab-simple
+  .tabs-action.txt-r
+    %a Some Action
+  %ul.nav.nav-tabs
+    %li.active
+      %a{"data-toggle" => "tab", :href => "#spaces"}Spaces
+    %li
+      %a{"data-toggle" => "tab", :href => "#domains"}Domains
+    %li
+      %a{"data-toggle" => "tab", :href => "#members"}Members
+
+
+  .tab-content
+    #spaces.tab-pane.fade.in.active Spaces Content
+    #domains.tab-pane.fade Domains Content
+    #members.tab-pane.fade Members Content
+
+```
+*/
+
+$tab-border-size: 3px;
+.tab-simple {
+  background-color: $tab-simple-tab-active-bg-color;
+  position: relative;
+  .nav {
+    &.nav-tabs {
+      border-bottom: $tab-border-size solid $tab-simple-shadow-border-color;
+      border-top: 1px solid $tab-simple-tab-border-color;
+      background-color: $tab-simple-bg-color;
+      @include background-clip-fix;
+    }
+
+    > li {
+      border-right: 1px solid $tab-simple-tab-border-color;
+      > a {
+        border: 0; //bootstrap override
+        border-radius: 0; //bootstrap override
+        padding: 10px 19px 13px 19px;
+        color: $tab-simple-link-color;
+        font-weight: $tab-simple-link-font-weight;
+        font-size: 16px;
+      }
+
+      > a:hover {
+        border: 0;
+      }
+    }
+
+    > li:hover {
+      cursor: pointer;
+      @include transition-hover;
+
+      > a {
+        background-color: $tab-simple-tab-hover-bg-color;
+      }
+    }
+
+    > li.active {
+      margin-bottom: -$tab-border-size; //Don't show the border on the active tab
+      border-top: $tab-border-size solid $tab-simple-shadow-border-color;
+      background-color: $tab-simple-tab-active-bg-color;
+      cursor: default;
+      border-right: 0;
+      @include no-transition-hover;
+
+      > a {
+        margin: -$tab-border-size 0 $tab-border-size 0; //shift text up to offset top border
+        color: $tab-simple-link-active-color;
+        background-color: transparent;
+      }
+    }
+  }
+
+  .tab-content {
+  }
+
+  .tabs-action {
+    padding: 14px 16px;
+    position: absolute;
+    right: 0;
+  }
+}
+
