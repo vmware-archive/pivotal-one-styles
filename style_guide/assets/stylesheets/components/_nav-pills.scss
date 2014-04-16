@@ -14,7 +14,6 @@ category: Base CSS
 title: Pills
 name: pills
 parent: navigation
-category: Base CSS
 ---
 
 pill-group at the moment is only intended to be applied to an active nav-pill.
@@ -70,7 +69,7 @@ pill-group at the moment is only intended to be applied to an active nav-pill.
       padding: 2px 7px;
       font-size: 18px;
       &:hover {
-      border-left-color: $teal-5;
+      border-left-color: $teal-6;
       color: $type-inverse;
       }
     }

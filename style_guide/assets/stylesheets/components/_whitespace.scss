@@ -24,4 +24,8 @@ n, s, m, l, xl, xxl, xxxl, xxxxl | none(0px), small(5px), medium(7px), large(10p
 
 */
 
-@include whitespace((5px, 7px, 10px, 20px, 40px, 120px, 140px));
+@include whitespace(($whitespace-s, $whitespace-m, $whitespace-l, $whitespace-xl, $whitespace-xxl, $whitespace-xxxl, $whitespace-xxxxl));
+
+@media all and (max-width: $screen-sm) {
+  @include whitespace(($whitespace-screen-sm-s, $whitespace-screen-sm-m, $whitespace-screen-sm-l, $whitespace-screen-sm-xl, $whitespace-screen-sm-xxl, $whitespace-screen-sm-xxxl, $whitespace-screen-sm-xxxxl));
+}

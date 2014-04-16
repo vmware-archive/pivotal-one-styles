@@ -1,46 +1,20 @@
 // Styles specific to the styleguide, otherwise, not used
-@import 'github';
+@import 'style_guide_github';
 @import "bootstrap3/mixins";
 
-.page-body {
-  nav {
-    width: 200px;
-    float: left;
-    li {
-      ul {
-        display: none;
-      }
+@import "components/utils";
+@import "components/mixins";
 
-      > a {
-        border-left: 3px solid white;
-        color: #B3B3B3;
-        padding: 3px 3px;
-      }
-    }
-    li.active {
-      ul{
-        display: block;
-      }
 
-      > a {
-        border-left: 2px solid #49A8D5;
-        color: #49A8D5;
-        padding: 3px 3px;
-      }
-    }
-  }
-
-  .content {
-    width: 80%;
-    float: right;
-  }
-  nav + h1 {
-    width: 80%;
-    float: right;
-  }
+.navlinks-global {
+  display: none;
 }
 
-nav {
+nav.styleguide-nav {
+  position: fixed !important;
+  width: 200px;
+  float: left;
+  margin-left: -200px;
   ul {
     list-style-type: none;
     padding: 0;
@@ -53,6 +27,28 @@ nav {
 
     > li {
       margin-left: 0;
+    }
+  }
+  li {
+    ul {
+      display: none;
+    }
+
+    > a {
+      border-left: 3px solid transparent;
+      color: #B3B3B3;
+      padding: 3px 3px;
+    }
+  }
+  li.active {
+    ul{
+      display: block;
+    }
+
+    > a {
+      border-left: 2px solid #49A8D5;
+      color: #49A8D5;
+      padding: 3px 3px;
     }
   }
 }
@@ -81,33 +77,6 @@ nav {
   font-size: 11px;
   font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
 }
-
-// From hologram, might break some things.
-
-.container {
-  max-width: 1128px;
-  width: auto;
-  margin: 0 auto;
-}
-
-.content {
-  margin-top: 5px;
-}
-
-
-.main > h1 {
-  margin-top: 30px;
-}
-
-.main > h1:first-child {
-  margin-top: 0;
-}
-
-footer {
-  margin-top: 20px;
-  text-align: center;
-}
-
 
 .componentMenu {
   max-height: 535px;
@@ -141,9 +110,10 @@ code {
 }
 
 div.codeExample, div.jsExample {
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin: 10px 0;
+  border-radius: 5px;
+  @include background-clip-fix;
+  border-bottom: 2px solid rgba(40,40,40,0.08);
+  background-color: #ECEFEF;
 }
 
 div.jsExample {
@@ -163,7 +133,7 @@ div.codeExample:before, div.jsExample:before {
 }
 
 div.codeExample:before {
-  content: "Example";
+  content: " Example ";
   background-color: #f9f9f9;
   width: 60px;
   top: -1px;
@@ -233,7 +203,6 @@ table td, table th {
 // form hacks
 
 .styleguide-form {
-  background-color: #F8F8F8;
   padding: 25px;
 }
 
@@ -250,29 +219,35 @@ table td, table th {
   }
 }
 
+pre {
+  background-color: transparent; //bootstrap override
+  border: none; //bootstrap override
+}
+
+
 //make modal visible in the example.
 .exampleOutput .modal {
-  position: relative;
-  top: auto;
-  right: auto;
-  left: auto;
-  bottom: auto;
-  z-index: 1;
-  display: block;
-  //make it modal.fade.in
-  opacity: 1;
-  &.fade .modal-dialog {
-    @include translate(0, 0);
-  }
+position: relative;
+top: auto;
+right: auto;
+left: auto;
+bottom: auto;
+z-index: 1;
+display: block;
+//make it modal.fade.in
+opacity: 1;
+&.fade .modal-dialog {
+  @include translate(0, 0);
+}
 }
 
 //make background image visible in styleguide chip
 .bkg-highlight-2 {
-  background-position: 0 50%;
+background-position: 0 50%;
 }
 
 // toggle code visibility
 
 .code-hide .codeBlock {
-  display: none;
+display: none;
 }

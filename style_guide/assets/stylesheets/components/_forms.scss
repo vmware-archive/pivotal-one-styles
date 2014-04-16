@@ -21,7 +21,6 @@ pages in the application.
 title: Inputs & Labels
 name: input
 parent: form
-category: Base CSS
 ---
 
 An input with the label top aligned (this is the default layout).
@@ -62,6 +61,13 @@ An input with the label right aligned (N.B., control-label class provides the ri
     .col-md-18
       %input#exampleInputEmail1.form-control{:placeholder => "Enter email", :type => "email", :required => "required", 'aria-required' => "true"}
 ```
+
+An unstyled inputs that doesn't have any of the default input styles
+
+```haml_example
+%form{:role => "form"}
+  %input.unstyled{"placeholder" => "This is a text input"}
+```
 */
 
 .form-group {
@@ -76,6 +82,12 @@ An input with the label right aligned (N.B., control-label class provides the ri
       margin-right: 2px;
     }
   }
+}
+
+.unstyled {
+  background-color: transparent;
+  outline: none;
+  border: none;
 }
 
 label {
@@ -104,7 +116,6 @@ label {
 title: Text Area
 name: textarea
 parent: form
-category: Base CSS
 ---
 
 Text areas are used for larger amounts of input.
@@ -123,7 +134,6 @@ Text areas are used for larger amounts of input.
 title: Checkboxes & Radios
 name: Checkboxes
 parent: form
-category: Base CSS
 ---
 Checkboxes are for selecting one or several options in a list while radios are for selecting one option from many.
 
@@ -184,7 +194,6 @@ input[type="radio"] {
 title: Inline Forms
 name: inline_forms
 parent: form
-category: Base CSS
 ---
 
 Add `.form-inline` to your `<form>` for left-aligned and inline-block controls. This only applies to forms within viewports that are at least 768px wide.
@@ -222,7 +231,6 @@ Screen readers will have trouble with your forms if you don't include a label fo
 title: Inline Forms with Labels
 name: inline_forms_with_labels
 parent: form
-category: Base CSS
 ---
 
 Add `.form-inline.inline-labels` to your `<form>` for left-aligned and inline-block controls with labels inline with inputs.
@@ -258,7 +266,6 @@ Add `.form-inline.inline-labels` to your `<form>` for left-aligned and inline-bl
 title: HTML5 controls
 name: html5_controls
 parent: form
-category: Base CSS
 ---
 
 Examples of standard form controls supported in an example form layout.
@@ -347,22 +354,17 @@ Use this with fields that require telephone numbers to pop up the dialpad on mob
 title: Control states
 name: validation
 parent: form
-category: Base CSS
 ---
 
 ### Validation
 
-Bootstrap includes validation styles for error, warning, and success states on form controls. To use, add `.has-warning`, `.has-error`, or `.has-success` to the parent element. Any `.control-label`, `.form-control`, and `.help-block` within that element will receive the validation styles.
+Bootstrap includes validation styles for error and success states on form controls. To use, add `.has-error` or `.has-success` to the parent element. Any `.control-label`, `.form-control`, and `.help-block` within that element will receive the validation styles.
 
 ```haml_example
 %form.styleguide-form{:role => "form"}
   .form-group.has-success
     %label.control-label{:for => "inputSuccess"} Input with success
     %input#inputSuccess.form-control{:type => "text"}
-
-  .form-group.has-warning
-    %label.control-label{:for => "inputWarning"} Input with warning
-    %input#inputWarning.form-control{:type => "text"}
 
   .form-group.has-error
     %label.control-label{:for => "inputError"} Input with error
@@ -398,8 +400,8 @@ Bootstrap includes validation styles for error, warning, and success states on f
     line-height: $input-height-base;
     border-top-right-radius: $input-border-radius;
     border-bottom-right-radius: $input-border-radius;
-    background-color: $green-2;
-    color: $gray-5;
+    background-color: $green-1;
+    color: $gray-8;
     font-family: FontAwesome;
     font-weight: normal;
     font-style: normal;
@@ -414,10 +416,10 @@ Bootstrap includes validation styles for error, warning, and success states on f
     outline: 1px solid $red-2;
   }
 
-  @include validation-label-color()
-}
+  .help-block, .help-inline {
+    font-size: $font-size-small;
+  }
 
-.has-warning {
   @include validation-label-color()
 }
 
@@ -428,7 +430,6 @@ Bootstrap includes validation styles for error, warning, and success states on f
 title: Disabled Inputs
 name: disabled
 parent: validation
-category: Base CSS
 ---
 ### Disabled Inputs
 
@@ -449,7 +450,6 @@ Inputs will occasionally need to be disabled. You can do that by adding the `dis
 title: Selects
 name: selects
 parent: form
-category: Base CSS
 ---
 Selects are excellent to use because they will automatically
 behave as expected cross browser on different devices. Prefer
@@ -470,7 +470,6 @@ be changed via the [control sizing options](#control_sizing).
 title: Control Sizing
 name: control_sizing
 parent: form
-category: Base CSS
 ---
 Set heights using classes like `.input-lg`, and set widths using grid column classes like `.col-lg-*`.
 
@@ -519,7 +518,6 @@ Wrap inputs in grid columns, or any custom parent element, to easily enforce des
 title: Help Text
 name: help_text
 parent: form
-category: Base CSS
 ---
 Help text
 Block level help text for form controls.
@@ -537,7 +535,6 @@ Block level help text for form controls.
 title: Static Control
 name: static_control
 parent: form
-category: Base CSS
 ---
 When you need to place plain text next to a form label within a horizontal form, use the `.form-control-static` class on a `<p>`.
 
@@ -560,7 +557,6 @@ When you need to place plain text next to a form label within a horizontal form,
 title: Vertical static controls
 name: static_controll
 parent: form
-category: Base CSS
 ---
 
 ```haml_example
@@ -602,15 +598,119 @@ p.form-control-static {
 
 /*doc
 ---
-title: Read Only Text Input
-name: read_only_text_input
+title: Autoselect Text Input
+name: autoselect_text_input
 parent: form
-category: Base CSS
 ---
 
 This form is used to show information that a user may wish to copy and paste somewhere.
 
 ```haml_example
-%input.form-control{:value => "This should auto highlight", 'data-behavior' => 'AutoSelect', readonly: 'readonly'}
+%input.auto-select.form-control{:value => "This should auto highlight", 'data-behavior' => 'AutoSelect', readonly: 'readonly'}
 ```
 */
+
+.form-control.auto-select {
+  cursor: pointer;
+}
+
+
+/*doc
+---
+title: Focus Input
+name: focus-input
+category: Focus Input
+---
+
+Add the focus-input directive to an element that should be focused if the focus-input expression changes such that it evalutes as true.
+
+```haml_example
+%a{"ng-click" => "focus_input1=true; focus_input2=false;"} Focus input 1
+%br
+%a{"ng-click" => "focus_input2=true; focus_input1=false;"} Focus input 2
+%br
+%input{"focus-input" => "focus_input1"}
+%input{"focus-input" => "focus_input2"}
+```
+
+*/
+
+/*doc
+---
+title: Form ContentEditable
+name: form-contenteditable
+category: Focus ContentEditable
+---
+
+This form looks and behaves mostly like a contenteditable field
+
+```haml_example
+%form.form-contenteditable{'name' => 'newEditableForm',
+                                 "ng-controller" => "EditableTextSetupController",
+                                 "ng-submit" => 'editText.save()',
+                                 "ng-class"=>'{"saving": editText.saving, "editing": editText.editing}'}
+  %label.txt-c
+    .form-group.mbn
+      .saving-text Updating Text...
+      %input.form-control{"name" => "name",
+                          "type" => "text",
+                          "ng-model" => "editText.newModel.name",
+                          "tabIndex" => "-1",
+                          :required => "required",
+                          "ng-focus" => 'editText.enterEditMode()',
+                          "ng-blur" => 'editText.save()'}
+```
+*/
+
+.form-contenteditable {
+
+  position: relative;
+
+  .form-contenteditable-hint {
+    position: absolute;
+    right: 12px;
+    top: 8px;
+    visibility: hidden;
+  }
+  label {
+    padding: 5px;
+    cursor: pointer;
+    margin-bottom: 0;
+  }
+  input.form-control {
+    background-color: transparent;
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    text-align: center;
+    @extend .h1;
+    margin: 0;
+    padding: 5px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    text-overflow:ellipsis;
+    overflow: hidden;
+    width: 100%;
+    line-height: 1.2;
+  }
+  .saving-text {
+    display: none;
+  }
+
+  &.editing .form-contenteditable-hint {
+    display: none;
+  }
+
+  &:hover .form-contenteditable-hint {
+    visibility: visible;
+  }
+
+  &.saving {
+    .saving-text {
+      display: block;
+    }
+    .showing-text {
+      display: none;
+    }
+  }
+}

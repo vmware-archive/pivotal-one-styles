@@ -5,7 +5,7 @@ http_path = "/"
 css_dir = "assets/css"
 sass_dir = "assets/stylesheets"
 images_dir = "assets/images"
-additional_import_paths = ["assets/vendor"]
+additional_import_paths = ["assets/vendor", "assets/style_guide"]
 
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed

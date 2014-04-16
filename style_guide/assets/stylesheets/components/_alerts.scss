@@ -31,33 +31,22 @@ You can also make them dismissable:
   %button.close{data: {dismiss: "alert"}}
     %i.fa.fa-times
   Warn
-.alert.alert-danger.alert-dismissable
+.alert.alert-error.alert-dismissable
   %button.close{data: {dismiss: "alert"}}
     %i.fa.fa-times
-  Danger
+  Error
+  %a{href: "#"} Link to resolve Error
 ```
 
 */
 
-.alert-dismissable {
-  $right-padding: $alert-padding * 2;
-  padding-right: $right-padding;
-
-  .close {
-    right: $alert-padding/2 - $right-padding;
-    top: -$alert-padding/2;
-    font-size: $alert-close-size;
-    color: $type-inverse;
-    opacity: 1.0;
-  }
-
-  &.alert-warning, &.alert-notice, &.alert-info {
-    .close {
-      color: $type-primary-4;
-    }
+.alert-error {
+  a {
+    color: $alert-danger-text;
+    font-weight: bold;
+    text-decoration: underline;
   }
 }
-
 //TODO: deprecate-alert notice and use alert-info
 .alert-notice {
   @extend .alert-info;

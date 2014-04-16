@@ -1,13 +1,17 @@
 .page-footer {
   padding-top: 15px;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
   background-color: $footer-bg;
   color: $type-inverse;
-  font-weight: 200;
+  font-weight: 400;
+
+  .logo {
+    float: left;
+  }
 
   .list-footer {
     @extend .list-inline-divider;
-    float: left;
+    float: right;
 
 
     > li + li {
@@ -23,6 +27,7 @@
     > li {
       min-height: 25px;
       line-height: 25px;
+      padding-top: 5px;
 
     }
     a {

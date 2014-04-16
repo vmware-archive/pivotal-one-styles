@@ -17,8 +17,16 @@ If your button is actually a link to another page, please use the
 `<a>` element, while if your button performs an action, such as submitting
 a form or triggering some javascript event, then use a `<button>` element.
 
-##Button Sizes
-There are three 3 sizes for buttons: Large, medium (default)
+*/
+
+/*doc
+---
+title: Button Sizes
+name: button_sizes
+parent: button
+---
+
+There are three 3 sizes for buttons: Extra Large, Large (default)
 and small. Simply apply the size modifier class for the desired size.
 There is also an additional modifier that will make the button take the
 full width of the container. It may be used with the any of the button
@@ -39,7 +47,6 @@ Button                                                             | Modifier Cl
 title: Full width Buttons
 name: full_width_button
 parent: button
-category: Base CSS
 ---
 
 Create block level buttons—those that span the full width of a parent— by adding `.btn-block`.
@@ -64,9 +71,9 @@ Create block level buttons—those that span the full width of a parent— by ad
 
 /*doc
 ---
-parent: button
-name: buttonSkins
 title: Button Styles
+name: buttonSkins
+parent: button
 ---
 
 Button                                                     | Disabled                                                   | Class              | Description
@@ -111,7 +118,6 @@ Button                                                     | Disabled           
 title: Login Button
 name: button_login
 parent: button
-category: Base CSS
 ---
 
 There is a specific button style for the login pages:
@@ -123,8 +129,6 @@ There is a specific button style for the login pages:
 Do not use this button on normal application pages.
 
 */
-
-
 
 .btn-alternate {
   @include button-skin-alternate($btn-alternate-color, $btn-alternate-bg, $btn-alternate-border);
